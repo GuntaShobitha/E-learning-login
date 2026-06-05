@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly — Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Background -->
+<div class="blob-container">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+<div class="noise-overlay"></div>
+
+<!-- Login Page Wrapper -->
+<div class="login-page-wrapper">
+
+<!-- Login Page -->
+<div class="login-page" id="loginPage">
+
+  <!-- Left Panel -->
+  <div class="login-panel-left">
+    <div class="left-decoration"></div>
+    <div class="left-grid"></div>
+
+    <div class="brand-block fade-in-up">
+      <div class="brand-logo">
+        <div class="logo-icon">📚</div>
+        <span class="logo-text">Stackly</span>
+      </div>
+      <p class="brand-tagline">Stack knowledge. Build your future.</p>
+
+      <ul class="feature-list">
+        <li class="feature-item">
+          <div class="feature-icon fi-amber">🎯</div>
+          <div class="feature-text">
+            <strong>Curated Learning Paths</strong>
+            <span>Expert-crafted curricula for every skill level</span>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon fi-teal">📊</div>
+          <div class="feature-text">
+            <strong>Live Progress Tracking</strong>
+            <span>Real-time analytics for your growth journey</span>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon fi-purple">🎓</div>
+          <div class="feature-text">
+            <strong>Verified Certificates</strong>
+            <span>Industry-recognized credentials on completion</span>
+          </div>
+        </li>
+        <li class="feature-item">
+          <div class="feature-icon fi-green">🚀</div>
+          <div class="feature-text">
+            <strong>AI-Powered Insights</strong>
+            <span>Personalized recommendations just for you</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="login-panel-right">
+
+    <!-- Mobile brand (hidden on desktop) -->
+    <div class="mobile-brand fade-in-up">
+      <div class="mobile-logo-icon">📚</div>
+      <span class="mobile-logo-text">Stackly</span>
+    </div>
+
+    <div class="login-form-header fade-in-up">
+      <h2>Welcome back</h2>
+      <p>Sign in to your Stackly account to continue learning.</p>
+    </div>
+
+    <form id="loginForm" novalidate>
+      <!-- Role -->
+      <div class="form-group fade-in-up stagger-1">
+        <label class="form-label" for="loginRole">I am a</label>
+        <span class="input-icon">🎭</span>
+        <select class="form-control" id="loginRole" required>
+          <option value="">Select your role</option>
+          <option value="student">🎓 Student</option>
+          <option value="instructor">🧑‍🏫 Instructor</option>
+        </select>
+        <div class="error-msg" id="roleError">⚠ Please select a role.</div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group fade-in-up stagger-2">
+        <label class="form-label" for="loginEmail">Email Address</label>
+        <span class="input-icon">✉️</span>
+        <input
+          class="form-control"
+          type="email"
+          id="loginEmail"
+          placeholder="you@example.com"
+          autocomplete="email"
+          required
+        />
+        <div class="error-msg" id="emailError">⚠ Enter a valid email (must contain @ and .com).</div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group fade-in-up stagger-3">
+        <label class="form-label" for="loginPassword">Password</label>
+        <span class="input-icon">🔒</span>
+        <input
+          class="form-control"
+          type="password"
+          id="loginPassword"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        />
+        <div class="error-msg" id="passError">⚠ Please enter your password.</div>
+      </div>
+
+      <!-- Actions Row -->
+      <div class="form-actions fade-in-up stagger-4">
+        <div></div>
+        <a href="404.html" class="forgot-link">Forgot password?</a>
+      </div>
+
+      <!-- Login Button -->
+      <div class="fade-in-up stagger-5">
+        <button type="submit" class="btn-primary" id="loginBtn">Sign In</button>
+      </div>
+    </form>
+
+    <div class="divider fade-in-up stagger-6">or</div>
+
+    <div class="fade-in-up stagger-6">
+      <button type="button" class="btn-secondary" id="openCreateAccount">
+        ✨ Create a new account
+      </button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /login-page -->
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">📚</div>
+        <span class="footer-logo-text">Stackly</span>
+      </div>
+      <p class="footer-desc">Stack knowledge. Build your future. An AI-powered learning platform for curious minds at every level.</p>
+      <div class="footer-social">
+        <a class="footer-social-btn" href="#" title="Twitter/X">𝕏</a>
+        <a class="footer-social-btn" href="#" title="LinkedIn">in</a>
+        <a class="footer-social-btn" href="#" title="GitHub">⌥</a>
+        <a class="footer-social-btn" href="#" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-links">
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Learning Paths</a></li>
+        <li><a href="#">Certificates</a></li>
+        <li><a href="#">Live Sessions</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <span>Stackly</span>. All rights reserved. Made with ❤️ for learners worldwide.</div>
+    <div class="footer-badges">
+      <span class="footer-badge">🔒 SSL Secure</span>
+      <span class="footer-badge">🌍 Global</span>
+      <span class="footer-badge">⚡ AI Powered</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /login-page-wrapper -->
+
+<!-- ============================================================
+     CREATE ACCOUNT MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeModal">✕</button>
+
+    <!-- Form View -->
+    <div id="signupFormView">
+      <div class="modal-header">
+        <h3>Create Account</h3>
+        <p>Join Stackly and start your learning journey today.</p>
+      </div>
+
+      <form id="signupForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="signupName">Full Name</label>
+          <span class="input-icon">👤</span>
+          <input class="form-control" type="text" id="signupName" placeholder="Jane Doe" required />
+          <div class="error-msg" id="signupNameError">⚠ Please enter your full name.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signupEmail">Email Address</label>
+          <span class="input-icon">✉️</span>
+          <input class="form-control" type="email" id="signupEmail" placeholder="you@example.com" required />
+          <div class="error-msg" id="signupEmailError">⚠ Enter a valid email (must contain @ and .com).</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signupPassword">Password</label>
+          <span class="input-icon">🔒</span>
+          <input class="form-control" type="password" id="signupPassword" placeholder="Create a password" required />
+          <div class="error-msg" id="signupPassError">⚠ Please enter a password.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signupRole">Role</label>
+          <span class="input-icon">🎭</span>
+          <select class="form-control" id="signupRole" required>
+            <option value="">Select your role</option>
+            <option value="student">🎓 Student</option>
+            <option value="instructor">🧑‍🏫 Instructor</option>
+          </select>
+          <div class="error-msg" id="signupRoleError">⚠ Please select a role.</div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="margin-top: 8px;">
+          Create Account
+        </button>
+      </form>
+    </div>
+
+    <!-- Success View -->
+    <div class="success-anim" id="signupSuccess">
+      <div class="success-circle">🎉</div>
+      <h4>Account Created!</h4>
+      <p>Welcome to Stackly. Your account has been successfully created. You can now sign in with your credentials.</p>
+      <button class="btn-primary" style="width: auto; padding: 12px 32px;" id="backToLoginBtn">
+        Back to Login
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✅</span>
+  <span id="toastMsg">Action completed</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

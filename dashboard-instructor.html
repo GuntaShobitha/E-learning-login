@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly — Instructor Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="blob-container">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+</div>
+<div class="noise-overlay"></div>
+
+<div class="dashboard">
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-logo">📚</div>
+      <span class="sidebar-brand-name">Stackly</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <div class="nav-item active" data-section="overview">
+        <span class="nav-icon">🏠</span>
+        Dashboard
+      </div>
+      <div class="nav-item" data-section="courses">
+        <span class="nav-icon">📖</span>
+        Courses
+        <span class="nav-badge">5</span>
+      </div>
+      <div class="nav-item" data-section="students">
+        <span class="nav-icon">🎓</span>
+        Students
+        <span class="nav-badge">214</span>
+      </div>
+      <div class="nav-item" data-section="analytics">
+        <span class="nav-icon">📊</span>
+        Analytics
+      </div>
+
+      <div class="nav-section-label" style="margin-top:24px;">Account</div>
+      <div class="nav-item" data-section="profile">
+        <span class="nav-icon">👤</span>
+        Profile
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="nav-logout" id="logoutBtn">
+        <span class="nav-icon">🚪</span>
+        Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+      <button class="hamburger" id="hamburger" aria-label="Toggle sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <h1 class="topbar-title" id="pageTitle">Dashboard</h1>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search students, courses…" />
+      </div>
+      <div class="topbar-actions">
+        <button class="notif-btn" title="Notifications">
+          🔔
+          <span class="notif-dot"></span>
+        </button>
+        <div class="user-chip">
+          <div class="user-avatar" id="userAvatarTop">DR</div>
+          <span class="user-name" id="userNameTop">Dr. Rivera</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================================================
+         OVERVIEW SECTION
+         ================================================ -->
+    <main class="page-content" id="sectionOverview">
+
+      <div class="welcome-banner fade-in-up" style="background: linear-gradient(135deg,rgba(45,212,191,.12),rgba(192,132,252,.08));">
+        <div class="welcome-text">
+          <h2 id="welcomeHeading">Welcome back, Dr. Rivera! 🧑‍🏫</h2>
+          <p>You have 3 new student enrollments and 7 assignments pending review.</p>
+        </div>
+        <div class="welcome-emoji">🎯</div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card teal fade-in-up stagger-1">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value">214</div>
+          <div class="stat-label">Total Students</div>
+          <div class="stat-delta delta-up">↑ 3 this week</div>
+        </div>
+        <div class="stat-card amber fade-in-up stagger-2">
+          <div class="stat-icon">📖</div>
+          <div class="stat-value">5</div>
+          <div class="stat-label">Total Courses</div>
+          <div class="stat-delta delta-up">↑ 1 published</div>
+        </div>
+        <div class="stat-card green fade-in-up stagger-3">
+          <div class="stat-icon">✅</div>
+          <div class="stat-value">4</div>
+          <div class="stat-label">Active Courses</div>
+          <div class="stat-delta">1 draft</div>
+        </div>
+        <div class="stat-card purple fade-in-up stagger-4">
+          <div class="stat-icon">💰</div>
+          <div class="stat-value">$8.4k</div>
+          <div class="stat-label">Revenue (UI)</div>
+          <div class="stat-delta delta-up">↑ 18% this month</div>
+        </div>
+      </div>
+
+      <!-- Course Management + Activity -->
+      <div class="section-grid">
+        <div class="card fade-in-up stagger-2">
+          <div class="card-header">
+            <span class="card-title">Course Management</span>
+            <button class="btn-add-course" onclick="showToast('Course creator would open here!')">
+              + Add Course
+            </button>
+          </div>
+          <div class="course-mgmt-list">
+            <div class="course-mgmt-item">
+              <div class="course-thumb" style="background:rgba(245,158,11,.12);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">⚛️</div>
+              <div class="course-mgmt-info">
+                <div class="course-mgmt-name">React & Modern Frontend</div>
+                <div class="course-mgmt-meta">
+                  <span>👥 87 students</span>
+                  <span>⭐ 4.9</span>
+                  <span><span class="status-badge badge-green">Published</span></span>
+                </div>
+              </div>
+              <div class="course-mgmt-actions">
+                <button class="btn-sm btn-edit" onclick="showToast('Editing React & Modern Frontend…')">Edit</button>
+                <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+              </div>
+            </div>
+            <div class="course-mgmt-item">
+              <div class="course-thumb" style="background:rgba(45,212,191,.12);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🐍</div>
+              <div class="course-mgmt-info">
+                <div class="course-mgmt-name">Python for Data Science</div>
+                <div class="course-mgmt-meta">
+                  <span>👥 63 students</span>
+                  <span>⭐ 4.8</span>
+                  <span><span class="status-badge badge-green">Published</span></span>
+                </div>
+              </div>
+              <div class="course-mgmt-actions">
+                <button class="btn-sm btn-edit" onclick="showToast('Editing Python for Data Science…')">Edit</button>
+                <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+              </div>
+            </div>
+            <div class="course-mgmt-item">
+              <div class="course-thumb" style="background:rgba(192,132,252,.12);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🎨</div>
+              <div class="course-mgmt-info">
+                <div class="course-mgmt-name">UI/UX Design Fundamentals</div>
+                <div class="course-mgmt-meta">
+                  <span>👥 45 students</span>
+                  <span>⭐ 4.7</span>
+                  <span><span class="status-badge badge-green">Published</span></span>
+                </div>
+              </div>
+              <div class="course-mgmt-actions">
+                <button class="btn-sm btn-edit" onclick="showToast('Editing UI/UX Design Fundamentals…')">Edit</button>
+                <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+              </div>
+            </div>
+            <div class="course-mgmt-item">
+              <div class="course-thumb" style="background:rgba(74,222,128,.12);width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🔧</div>
+              <div class="course-mgmt-info">
+                <div class="course-mgmt-name">DevOps & Cloud Essentials</div>
+                <div class="course-mgmt-meta">
+                  <span>👥 19 students</span>
+                  <span>⭐ 4.6</span>
+                  <span><span class="status-badge badge-amber">Draft</span></span>
+                </div>
+              </div>
+              <div class="course-mgmt-actions">
+                <button class="btn-sm btn-edit" onclick="showToast('Editing DevOps & Cloud Essentials…')">Edit</button>
+                <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity -->
+        <div class="card fade-in-up stagger-3">
+          <div class="card-header"><span class="card-title">Recent Activity</span></div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-dot dot-teal"></div>
+              <div class="activity-body">
+                <div class="activity-text"><strong>3 new students</strong> enrolled in React & Frontend</div>
+                <div class="activity-time">1 hour ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot dot-amber"></div>
+              <div class="activity-body">
+                <div class="activity-text"><strong>Sarah K.</strong> submitted a project for review</div>
+                <div class="activity-time">3 hours ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot dot-green"></div>
+              <div class="activity-body">
+                <div class="activity-text">Course <strong>UI/UX Design</strong> got a 5-star review</div>
+                <div class="activity-time">Yesterday, 6:20 PM</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot dot-purple"></div>
+              <div class="activity-body">
+                <div class="activity-text">Published <strong>Module 6</strong> of Python for Data Science</div>
+                <div class="activity-time">2 days ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot dot-amber"></div>
+              <div class="activity-body">
+                <div class="activity-text">Revenue milestone: <strong>$8,000</strong> reached</div>
+                <div class="activity-time">3 days ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Overview -->
+      <div class="card fade-in-up stagger-4">
+        <div class="card-header">
+          <span class="card-title">Student Overview</span>
+          <span class="card-action" onclick="switchSection('students')">View all →</span>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Student</th>
+              <th>Course</th>
+              <th>Progress</th>
+              <th>Last Active</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="student-avatar">JD</span>John Doe</td>
+              <td>React & Modern Frontend</td>
+              <td>
+                <div class="progress-track" style="width:120px;height:6px;display:inline-block;vertical-align:middle;">
+                  <div class="progress-fill fill-amber" style="width:85%"></div>
+                </div>
+                <span style="margin-left:8px;font-size:.78rem;color:var(--amber-300)">85%</span>
+              </td>
+              <td>2h ago</td>
+              <td><span class="status-badge badge-green">Active</span></td>
+            </tr>
+            <tr>
+              <td><span class="student-avatar">SK</span>Sara Kim</td>
+              <td>Python for Data Science</td>
+              <td>
+                <div class="progress-track" style="width:120px;height:6px;display:inline-block;vertical-align:middle;">
+                  <div class="progress-fill fill-teal" style="width:62%"></div>
+                </div>
+                <span style="margin-left:8px;font-size:.78rem;color:var(--teal-300)">62%</span>
+              </td>
+              <td>Yesterday</td>
+              <td><span class="status-badge badge-green">Active</span></td>
+            </tr>
+            <tr>
+              <td><span class="student-avatar">MR</span>Mike Ross</td>
+              <td>UI/UX Design Fundamentals</td>
+              <td>
+                <div class="progress-track" style="width:120px;height:6px;display:inline-block;vertical-align:middle;">
+                  <div class="progress-fill fill-purple" style="width:20%"></div>
+                </div>
+                <span style="margin-left:8px;font-size:.78rem;color:var(--purple-400)">20%</span>
+              </td>
+              <td>3 days ago</td>
+              <td><span class="status-badge badge-amber">Inactive</span></td>
+            </tr>
+            <tr>
+              <td><span class="student-avatar">AP</span>Aisha Patel</td>
+              <td>React & Modern Frontend</td>
+              <td>
+                <div class="progress-track" style="width:120px;height:6px;display:inline-block;vertical-align:middle;">
+                  <div class="progress-fill fill-amber" style="width:100%"></div>
+                </div>
+                <span style="margin-left:8px;font-size:.78rem;color:var(--green-400)">100%</span>
+              </td>
+              <td>1 day ago</td>
+              <td><span class="status-badge badge-teal">Completed</span></td>
+            </tr>
+            <tr>
+              <td><span class="student-avatar">LW</span>Leo Wang</td>
+              <td>Python for Data Science</td>
+              <td>
+                <div class="progress-track" style="width:120px;height:6px;display:inline-block;vertical-align:middle;">
+                  <div class="progress-fill fill-rose" style="width:5%"></div>
+                </div>
+                <span style="margin-left:8px;font-size:.78rem;color:var(--rose-400)">5%</span>
+              </td>
+              <td>1 week ago</td>
+              <td><span class="status-badge badge-rose">Struggling</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- ================================================
+         COURSES SECTION
+         ================================================ -->
+    <main class="page-content hidden" id="sectionCourses">
+      <div class="welcome-banner fade-in-up">
+        <div class="welcome-text">
+          <h2>Course Management</h2>
+          <p>Create, manage, and track all your published and draft courses.</p>
+        </div>
+        <button class="btn-add-course" style="flex-shrink:0;" onclick="showToast('Course creator would open here!')">
+          + Add Course
+        </button>
+      </div>
+
+      <div class="card fade-in-up">
+        <div class="card-header">
+          <span class="card-title">All Courses</span>
+          <span class="status-badge badge-teal">5 total</span>
+        </div>
+        <div class="course-mgmt-list">
+          <div class="course-mgmt-item">
+            <div class="course-thumb" style="background:rgba(245,158,11,.12);width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">⚛️</div>
+            <div class="course-mgmt-info">
+              <div class="course-mgmt-name">React & Modern Frontend</div>
+              <div class="course-mgmt-meta">
+                <span>👥 87 students</span>
+                <span>📝 10 modules</span>
+                <span>⭐ 4.9</span>
+                <span><span class="status-badge badge-green">Published</span></span>
+              </div>
+            </div>
+            <div class="course-mgmt-actions">
+              <button class="btn-sm btn-edit" onclick="showToast('Editing React & Modern Frontend…')">Edit</button>
+              <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+            </div>
+          </div>
+          <div class="course-mgmt-item">
+            <div class="course-thumb" style="background:rgba(45,212,191,.12);width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🐍</div>
+            <div class="course-mgmt-info">
+              <div class="course-mgmt-name">Python for Data Science</div>
+              <div class="course-mgmt-meta">
+                <span>👥 63 students</span>
+                <span>📝 12 modules</span>
+                <span>⭐ 4.8</span>
+                <span><span class="status-badge badge-green">Published</span></span>
+              </div>
+            </div>
+            <div class="course-mgmt-actions">
+              <button class="btn-sm btn-edit" onclick="showToast('Editing Python for Data Science…')">Edit</button>
+              <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+            </div>
+          </div>
+          <div class="course-mgmt-item">
+            <div class="course-thumb" style="background:rgba(192,132,252,.12);width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🎨</div>
+            <div class="course-mgmt-info">
+              <div class="course-mgmt-name">UI/UX Design Fundamentals</div>
+              <div class="course-mgmt-meta">
+                <span>👥 45 students</span>
+                <span>📝 8 modules</span>
+                <span>⭐ 4.7</span>
+                <span><span class="status-badge badge-green">Published</span></span>
+              </div>
+            </div>
+            <div class="course-mgmt-actions">
+              <button class="btn-sm btn-edit" onclick="showToast('Editing UI/UX Design Fundamentals…')">Edit</button>
+              <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+            </div>
+          </div>
+          <div class="course-mgmt-item">
+            <div class="course-thumb" style="background:rgba(74,222,128,.12);width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🔧</div>
+            <div class="course-mgmt-info">
+              <div class="course-mgmt-name">DevOps & Cloud Essentials</div>
+              <div class="course-mgmt-meta">
+                <span>👥 19 students</span>
+                <span>📝 9 modules</span>
+                <span>⭐ 4.6</span>
+                <span><span class="status-badge badge-amber">Draft</span></span>
+              </div>
+            </div>
+            <div class="course-mgmt-actions">
+              <button class="btn-sm btn-edit" onclick="showToast('Editing DevOps & Cloud Essentials…')">Edit</button>
+              <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+            </div>
+          </div>
+          <div class="course-mgmt-item">
+            <div class="course-thumb" style="background:rgba(251,113,133,.12);width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🧠</div>
+            <div class="course-mgmt-info">
+              <div class="course-mgmt-name">Machine Learning A–Z</div>
+              <div class="course-mgmt-meta">
+                <span>👥 0 students</span>
+                <span>📝 0/15 modules</span>
+                <span>⭐ —</span>
+                <span><span class="status-badge badge-rose">Draft</span></span>
+              </div>
+            </div>
+            <div class="course-mgmt-actions">
+              <button class="btn-sm btn-edit" onclick="showToast('Editing Machine Learning A–Z…')">Edit</button>
+              <button class="btn-sm btn-delete" onclick="showToast('Delete confirmation would appear here.')">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================================================
+         STUDENTS SECTION
+         ================================================ -->
+    <main class="page-content hidden" id="sectionStudents">
+      <div class="welcome-banner fade-in-up" style="background: linear-gradient(135deg,rgba(45,212,191,.12),rgba(74,222,128,.08));">
+        <div class="welcome-text">
+          <h2>Students</h2>
+          <p>214 students enrolled across your 5 courses. 3 new this week.</p>
+        </div>
+        <div class="welcome-emoji">🎓</div>
+      </div>
+
+      <div class="stats-grid" style="margin-bottom:24px;">
+        <div class="stat-card teal fade-in-up stagger-1">
+          <div class="stat-icon">👥</div>
+          <div class="stat-value">214</div>
+          <div class="stat-label">Total Enrolled</div>
+        </div>
+        <div class="stat-card green fade-in-up stagger-2">
+          <div class="stat-icon">✅</div>
+          <div class="stat-value">38</div>
+          <div class="stat-label">Completed a Course</div>
+        </div>
+        <div class="stat-card amber fade-in-up stagger-3">
+          <div class="stat-icon">⚡</div>
+          <div class="stat-value">156</div>
+          <div class="stat-label">Active This Week</div>
+        </div>
+        <div class="stat-card purple fade-in-up stagger-4">
+          <div class="stat-icon">⚠️</div>
+          <div class="stat-value">20</div>
+          <div class="stat-label">Need Attention</div>
+        </div>
+      </div>
+
+      <div class="card fade-in-up">
+        <div class="card-header">
+          <span class="card-title">All Students</span>
+          <input type="text" placeholder="🔍 Search students…" style="padding:8px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:50px;color:var(--text-primary);font-size:.82rem;outline:none;width:200px;" />
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Progress</th>
+              <th>Last Active</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="student-avatar">JD</span>John Doe</td><td style="color:var(--text-muted)">john@email.com</td><td>React & Frontend</td><td><div class="progress-track" style="width:100px;height:5px;display:inline-block;vertical-align:middle;"><div class="progress-fill fill-amber" style="width:85%"></div></div> <span style="color:var(--amber-300);font-size:.78rem">85%</span></td><td>2h ago</td><td><span class="status-badge badge-green">Active</span></td></tr>
+            <tr><td><span class="student-avatar">SK</span>Sara Kim</td><td style="color:var(--text-muted)">sara@email.com</td><td>Python DS</td><td><div class="progress-track" style="width:100px;height:5px;display:inline-block;vertical-align:middle;"><div class="progress-fill fill-teal" style="width:62%"></div></div> <span style="color:var(--teal-300);font-size:.78rem">62%</span></td><td>Yesterday</td><td><span class="status-badge badge-green">Active</span></td></tr>
+            <tr><td><span class="student-avatar">MR</span>Mike Ross</td><td style="color:var(--text-muted)">mike@email.com</td><td>UI/UX Design</td><td><div class="progress-track" style="width:100px;height:5px;display:inline-block;vertical-align:middle;"><div class="progress-fill fill-purple" style="width:20%"></div></div> <span style="color:var(--purple-400);font-size:.78rem">20%</span></td><td>3 days ago</td><td><span class="status-badge badge-amber">Inactive</span></td></tr>
+            <tr><td><span class="student-avatar">AP</span>Aisha Patel</td><td style="color:var(--text-muted)">aisha@email.com</td><td>React & Frontend</td><td><div class="progress-track" style="width:100px;height:5px;display:inline-block;vertical-align:middle;"><div class="progress-fill fill-amber" style="width:100%"></div></div> <span style="color:var(--green-400);font-size:.78rem">100%</span></td><td>1 day ago</td><td><span class="status-badge badge-teal">Completed</span></td></tr>
+            <tr><td><span class="student-avatar">LW</span>Leo Wang</td><td style="color:var(--text-muted)">leo@email.com</td><td>Python DS</td><td><div class="progress-track" style="width:100px;height:5px;display:inline-block;vertical-align:middle;"><div class="progress-fill fill-rose" style="width:5%"></div></div> <span style="color:var(--rose-400);font-size:.78rem">5%</span></td><td>1 week ago</td><td><span class="status-badge badge-rose">Struggling</span></td></tr>
+            <tr><td><span class="student-avatar">FN</span>Fatima N.</td><td style="color:var(--text-muted)">fatima@email.com</td><td>UI/UX Design</td><td><div class="progress-track" style="width:100px;height:5px;display:inline-block;vertical-align:middle;"><div class="progress-fill fill-purple" style="width:75%"></div></div> <span style="color:var(--purple-400);font-size:.78rem">75%</span></td><td>5h ago</td><td><span class="status-badge badge-green">Active</span></td></tr>
+            <tr><td><span class="student-avatar">CB</span>Carlos B.</td><td style="color:var(--text-muted)">carlos@email.com</td><td>React & Frontend</td><td><div class="progress-track" style="width:100px;height:5px;display:inline-block;vertical-align:middle;"><div class="progress-fill fill-amber" style="width:48%"></div></div> <span style="color:var(--amber-300);font-size:.78rem">48%</span></td><td>2 days ago</td><td><span class="status-badge badge-amber">Inactive</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <!-- ================================================
+         ANALYTICS SECTION
+         ================================================ -->
+    <main class="page-content hidden" id="sectionAnalytics">
+      <div class="welcome-banner fade-in-up" style="background: linear-gradient(135deg,rgba(192,132,252,.12),rgba(245,158,11,.08));">
+        <div class="welcome-text">
+          <h2>Analytics</h2>
+          <p>Track your platform performance, revenue, and engagement metrics.</p>
+        </div>
+        <div class="welcome-emoji">📊</div>
+      </div>
+
+      <div class="stats-grid" style="margin-bottom:24px;">
+        <div class="stat-card purple fade-in-up stagger-1">
+          <div class="stat-icon">💰</div>
+          <div class="stat-value">$8.4k</div>
+          <div class="stat-label">Total Revenue</div>
+          <div class="stat-delta delta-up">↑ 18% MoM</div>
+        </div>
+        <div class="stat-card amber fade-in-up stagger-2">
+          <div class="stat-icon">📈</div>
+          <div class="stat-value">73%</div>
+          <div class="stat-label">Completion Rate</div>
+          <div class="stat-delta delta-up">↑ 5% vs last month</div>
+        </div>
+        <div class="stat-card teal fade-in-up stagger-3">
+          <div class="stat-icon">⭐</div>
+          <div class="stat-value">4.8</div>
+          <div class="stat-label">Avg. Rating</div>
+          <div class="stat-delta delta-up">↑ 0.2 points</div>
+        </div>
+        <div class="stat-card green fade-in-up stagger-4">
+          <div class="stat-icon">🔁</div>
+          <div class="stat-value">68%</div>
+          <div class="stat-label">Retention Rate</div>
+          <div class="stat-delta delta-up">Industry avg: 55%</div>
+        </div>
+      </div>
+
+      <div class="section-grid fade-in-up stagger-2">
+        <div class="card">
+          <div class="card-header"><span class="card-title">Monthly Enrollments</span></div>
+          <div class="chart-area" style="margin-bottom:30px;">
+            <div class="chart-bar" style="height:40%;background:linear-gradient(to top,var(--amber-400),var(--amber-300));"><span class="chart-bar-label">Jan</span></div>
+            <div class="chart-bar" style="height:55%;background:linear-gradient(to top,var(--teal-400),var(--teal-300));"><span class="chart-bar-label">Feb</span></div>
+            <div class="chart-bar" style="height:35%;background:linear-gradient(to top,var(--amber-400),var(--amber-300));"><span class="chart-bar-label">Mar</span></div>
+            <div class="chart-bar" style="height:70%;background:linear-gradient(to top,var(--purple-400),#a855f7);"><span class="chart-bar-label">Apr</span></div>
+            <div class="chart-bar" style="height:80%;background:linear-gradient(to top,var(--green-400),#86efac);"><span class="chart-bar-label">May</span></div>
+            <div class="chart-bar" style="height:100%;background:linear-gradient(to top,var(--amber-400),var(--amber-300));"><span class="chart-bar-label">Jun</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><span class="card-title">Revenue by Course</span></div>
+          <div style="display:flex;flex-direction:column;gap:14px;margin-top:4px;">
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.82rem;">
+                <span style="color:var(--text-secondary)">⚛️ React & Frontend</span>
+                <span style="color:var(--amber-300)">$3,200</span>
+              </div>
+              <div class="progress-track" style="height:8px;"><div class="progress-fill fill-amber" style="width:82%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.82rem;">
+                <span style="color:var(--text-secondary)">🐍 Python DS</span>
+                <span style="color:var(--teal-300)">$2,400</span>
+              </div>
+              <div class="progress-track" style="height:8px;"><div class="progress-fill fill-teal" style="width:62%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.82rem;">
+                <span style="color:var(--text-secondary)">🎨 UI/UX Design</span>
+                <span style="color:var(--purple-400)">$1,700</span>
+              </div>
+              <div class="progress-track" style="height:8px;"><div class="progress-fill fill-purple" style="width:44%"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.82rem;">
+                <span style="color:var(--text-secondary)">🔧 DevOps</span>
+                <span style="color:var(--green-400)">$1,100</span>
+              </div>
+              <div class="progress-track" style="height:8px;"><div class="progress-fill fill-green" style="width:28%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ratings & Reviews -->
+      <div class="card fade-in-up stagger-3">
+        <div class="card-header"><span class="card-title">Course Ratings</span></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">
+          <div style="background:rgba(255,255,255,.04);border-radius:14px;padding:16px;text-align:center;">
+            <div style="font-size:2rem;margin-bottom:4px;">⚛️</div>
+            <div style="font-size:.85rem;color:var(--text-primary);margin-bottom:4px;">React & Frontend</div>
+            <div style="font-size:1.4rem;font-weight:700;color:var(--amber-300);">4.9 ⭐</div>
+            <div style="font-size:.75rem;color:var(--text-muted);">87 reviews</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border-radius:14px;padding:16px;text-align:center;">
+            <div style="font-size:2rem;margin-bottom:4px;">🐍</div>
+            <div style="font-size:.85rem;color:var(--text-primary);margin-bottom:4px;">Python DS</div>
+            <div style="font-size:1.4rem;font-weight:700;color:var(--teal-300);">4.8 ⭐</div>
+            <div style="font-size:.75rem;color:var(--text-muted);">63 reviews</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border-radius:14px;padding:16px;text-align:center;">
+            <div style="font-size:2rem;margin-bottom:4px;">🎨</div>
+            <div style="font-size:.85rem;color:var(--text-primary);margin-bottom:4px;">UI/UX Design</div>
+            <div style="font-size:1.4rem;font-weight:700;color:var(--purple-400);">4.7 ⭐</div>
+            <div style="font-size:.75rem;color:var(--text-muted);">45 reviews</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border-radius:14px;padding:16px;text-align:center;">
+            <div style="font-size:2rem;margin-bottom:4px;">🔧</div>
+            <div style="font-size:.85rem;color:var(--text-primary);margin-bottom:4px;">DevOps</div>
+            <div style="font-size:1.4rem;font-weight:700;color:var(--green-400);">4.6 ⭐</div>
+            <div style="font-size:.75rem;color:var(--text-muted);">19 reviews</div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================================================
+         PROFILE SECTION
+         ================================================ -->
+    <main class="page-content hidden" id="sectionProfile">
+      <div class="welcome-banner fade-in-up">
+        <div class="welcome-text">
+          <h2>Instructor Profile</h2>
+          <p>Manage your public profile, bio, and teaching preferences.</p>
+        </div>
+        <div class="welcome-emoji">🧑‍🏫</div>
+      </div>
+
+      <div class="section-grid fade-in-up">
+        <div class="card">
+          <div class="card-header"><span class="card-title">Personal Information</span></div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:20px;margin-bottom:16px;">
+              <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--teal-400),var(--teal-300));display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--navy-950);font-weight:700;" id="profileAvatarLarge">DR</div>
+              <div>
+                <div style="font-size:1.2rem;font-weight:600;color:var(--text-primary);" id="profileFullName">Dr. Alex Rivera</div>
+                <div style="font-size:.85rem;color:var(--text-muted);">Instructor · 5 courses · 214 students</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <span class="input-icon">👤</span>
+              <input class="form-control" type="text" id="profileNameInput" value="Dr. Alex Rivera" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <span class="input-icon">✉️</span>
+              <input class="form-control" type="email" id="profileEmailInput" value="alex@stackly.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Title / Specialty</label>
+              <span class="input-icon">🎓</span>
+              <input class="form-control" type="text" placeholder="e.g. Senior Frontend Engineer" value="Full-Stack Engineer & Educator" />
+            </div>
+            <button class="btn-primary" style="width:auto;padding:12px 28px;" onclick="showToast('Profile saved!')">Save Changes</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><span class="card-title">Instructor Stats</span></div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;justify-content:space-between;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;">
+              <span style="color:var(--text-secondary);font-size:.88rem;">Total Students</span>
+              <span style="font-weight:600;color:var(--teal-300);">214</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;">
+              <span style="color:var(--text-secondary);font-size:.88rem;">Published Courses</span>
+              <span style="font-weight:600;color:var(--amber-300);">4</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;">
+              <span style="color:var(--text-secondary);font-size:.88rem;">Total Revenue</span>
+              <span style="font-weight:600;color:var(--green-400);">$8,400</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;">
+              <span style="color:var(--text-secondary);font-size:.88rem;">Avg. Course Rating</span>
+              <span style="font-weight:600;color:var(--amber-300);">⭐ 4.8</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:12px;background:rgba(255,255,255,.04);border-radius:10px;">
+              <span style="color:var(--text-secondary);font-size:.88rem;">Completions</span>
+              <span style="font-weight:600;color:var(--purple-400);">38 students</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Dashboard Footer -->
+    <footer class="dashboard-footer">
+      <div class="dashboard-footer-inner">
+        <div class="dashboard-footer-copy">© 2026 <span>Stackly</span>. Stack knowledge. Build your future.</div>
+        <div class="dashboard-footer-links">
+          <a href="#">Help Center</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /main-content -->
+</div><!-- /dashboard -->
+
+<div class="toast" id="toast">
+  <span class="toast-icon">✅</span>
+  <span id="toastMsg">Action completed</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
