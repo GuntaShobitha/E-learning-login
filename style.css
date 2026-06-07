@@ -410,7 +410,7 @@ input, select, textarea {
 }
 
 .input-icon {
-  position: absolute;
+  position: relative;
   left: 16px;
   bottom: 15px;
   font-size: 18px;
@@ -1614,6 +1614,8 @@ select.form-control option {
 @media (max-width: 400px) {
   .stats-grid { grid-template-columns: 1fr; }
   .user-name { display: none; }
+  .stagger-2 {margin-right: 15px;}
+  .stagger-3 {margin-right: 15px;}
 }
 
 /* ============================================================
