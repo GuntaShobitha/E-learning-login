@@ -1613,7 +1613,7 @@ select.form-control option {
 }
 
 @media (max-width: 400px) {
-  .stats-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; margin-right: 15px}
   .user-name { display: none; }
   .stagger-2{margin-right: 15px;}
   .stagger-3{margin-right: 15px;}
