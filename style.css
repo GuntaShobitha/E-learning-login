@@ -1612,12 +1612,31 @@ select.form-control option {
   .course-mgmt-actions { flex-direction: column; }
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   .stats-grid { grid-template-columns: 1fr; margin-right: 15px}
   .user-name { display: none; }
   .stagger-2{margin-right: 15px;}
   .stagger-3{margin-right: 15px;}
   
+} */ 
+
+
+
+
+@media (max-width: 400px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    margin-right: 0;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .stagger-2,
+  .stagger-3 {
+    margin-right: 0;
+  }
 }
 
 /* ============================================================
@@ -2577,5 +2596,16 @@ img, video, iframe, embed, object {
 
   .user-name {
     display: none;
+  }
+}
+
+
+
+
+@media (max-width: 400px) {
+  html,
+  body,
+  .main-content {
+    overflow-x: hidden;
   }
 }
