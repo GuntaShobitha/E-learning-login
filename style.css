@@ -2518,4 +2518,64 @@ img, video, iframe, embed, object {
   .status-badge {
     margin-top: 8px;
   }
+} 
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    width: 260px;
+    height: 100vh;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .stats-grid,
+  .section-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .welcome-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .data-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .user-name {
+    display: none;
+  }
 }
