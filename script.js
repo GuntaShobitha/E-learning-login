@@ -286,7 +286,7 @@ window.showToast = showToast;
     logoutBtn.addEventListener('click', () => {
       sessionStorage.removeItem('stackly_name');
       sessionStorage.removeItem('stackly_role');
-      window.location.href = 'login.html';
+      window.location.href = 'index.html';
     });
   }
 
